@@ -1,1 +1,1 @@
-web: gunicorn tyagi_api.wsgi --log-file-
+web: gunicorn tyagi_api.wsgi
