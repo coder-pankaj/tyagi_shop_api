@@ -9,8 +9,8 @@ class Category(models.Model):
    status = models.BooleanField(default=True)
    create_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.name
+   def __str__(self):
+       return self.name
 
 
 
