@@ -9,12 +9,15 @@ class Category(models.Model):
    status = models.BooleanField(default=True)
    create_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 
 
 class Products(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='static/')
     price = models.IntegerField()
     description = models.TextField(max_length=500, default="")
     qty = models.IntegerField()
@@ -22,15 +25,20 @@ class Products(models.Model):
     status = models.BooleanField(default=True)
     create_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+    
+
 
 
 class SliderImages(models.Model):  
    #  category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/slider') 
+    image = models.ImageField(upload_to='static/slider') 
     text_on_image =  models.CharField(max_length=256, default="", blank=True, null=True)  
     sub_text_on_image =  models.CharField(max_length=256, default="", blank=True, null=True)  
     status = models.BooleanField(default=True)
     create_at = models.DateTimeField(auto_now=True)
+    
     
 
 
