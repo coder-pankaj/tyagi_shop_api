@@ -17,7 +17,7 @@ class NewUser(AbstractUser):
    password = models.CharField(max_length=30)
    status = models.BooleanField(default=True)
    create_at = models.DateTimeField(auto_now=True)
-   username =models.CharField(max_length=500,default="tyagi_shop", blank=True, null=True)
+   username =models.CharField(max_length=500,default="", blank=True, null=True)
 
 
    def __str__(self):
