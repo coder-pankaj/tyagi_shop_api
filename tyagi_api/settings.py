@@ -44,8 +44,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      'api_v1',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken',
+    'cloudinary_storage',
+    'cloudinary',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 # MIDDLEWARE = [
 #     'django.middleware.security.SecurityMiddleware',
@@ -120,6 +129,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'api_v1.NewUser'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -146,7 +157,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT =  '/images/'
 
-MEDIA_URL = '/images/'
+
 
 # STATICFILES_DIRS = [
 #     BASE_DIR /'static'
@@ -159,6 +170,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dkitarsmr',
+    'API_KEY': '623214195119575',
+    'API_SECRET': 'XBceP1HZIJMf8TRc3zSGbJp-028'
+}
 
 
 
