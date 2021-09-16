@@ -17,7 +17,7 @@ class NewUser(AbstractUser):
    password = models.CharField(max_length=30)
    status = models.BooleanField(default=True)
    create_at = models.DateTimeField(auto_now=True)
-   username =models.CharField(max_length=500,default=email, blank=True, null=True)
+   username =models.CharField(max_length=500,default="tyagi_shop", blank=True, null=True)
 
 
    def __str__(self):
@@ -65,7 +65,7 @@ class OrderItem(models.Model):
     total = models.IntegerField()
     payment_method: models.CharField(max_length=256, default="COD", blank=True, null=True)
     is_pay: models.BooleanField(default=False)
-    shipping_address =  models.TextField(max_length=1000)
+    shipping_address =  models.TextField(max_length=1000, default="")
     status = models.BooleanField(default=True)
     create_at = models.DateTimeField(auto_now=True)
 
