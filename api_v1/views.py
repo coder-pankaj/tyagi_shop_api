@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from .serializer import ProductSerializer, CategorySerializer, SliderImagesSerializer, NewUserSerializer
-from .models import Products, Category, SliderImages, NewUser
+from .models import Products, Category, SliderImages, User_M
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -23,9 +23,9 @@ class LoginApiView(APIView):
 
     def post(self, request):
         try:
-         user = NewUser.objects.get(email=request.data['email'])
-         serializer = NewUserSerializer(user)
-        except NewUser.DoesNotExist:
+         user = User_M.objects.get(email=request.data['email'])
+         serializer = User_MSerializer(user)
+        except User_M.DoesNotExist:
             result = {
                 "result": '',
                 "status": status.HTTP_404_NOT_FOUND,
@@ -51,7 +51,7 @@ class NewUserApiView(APIView):
         if serializer.is_valid():
             password = make_password(request.data['password'])
             serializer.save(password=password)
-            user = NewUser.objects.get(email=serializer.data['email'])
+            user = User_M.objects.get(email=serializer.data['email'])
             token = create_get_Token(user)
             result = {
                 "result":serializer.data,

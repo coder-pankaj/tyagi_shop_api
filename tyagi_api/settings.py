@@ -129,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'api_v1.NewUser'
+
 
 
 # Internationalization
@@ -182,7 +182,7 @@ CLOUDINARY_STORAGE = {
 }
 
 
-
+AUTH_USER_MODEL = 'api_v1.User_M'
 
 CORS_ALLOW_ALL_ORIGINS = True
 

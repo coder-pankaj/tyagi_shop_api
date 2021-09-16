@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Products, Category, SliderImages, NewUser
+from .models import Products, Category, SliderImages, User_M
 
 
 class NewUserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = NewUser
+        model = User_M
         fields = '__all__'
 
 
